@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class FlashcardsStage5Test</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class FlashcardsStage5Test</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; FlashcardsStage5Test</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.195s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">start</td>
+<td class="success">0.195s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>?[1;31m
+Start test 1?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;black
+The definition of the card:
+&gt;white
+The pair (&quot;black&quot;:&quot;white&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;black
+The card &quot;black&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;red
+The definition of the card:
+&gt;white
+The definition &quot;white&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;2
+Print the definition of &quot;black&quot;:
+&gt;white
+Correct answer.
+Print the definition of &quot;black&quot;:
+&gt;green
+Wrong answer. The correct one is &quot;white&quot;.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 2?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;a brother of one's parent
+The definition of the card:
+&gt;uncle
+The pair (&quot;a brother of one's parent&quot;:&quot;uncle&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;a part of the body where the foot and the leg meet
+The definition of the card:
+&gt;ankle
+The pair (&quot;a part of the body where the foot and the leg meet&quot;:&quot;ankle&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;6
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;ankle
+Wrong answer. The correct one is &quot;uncle&quot;, you've just written the definition of &quot;a part of the body where the foot and the leg meet&quot;.The asked card was &quot;a brother of one's parent&quot;, the answer was &quot;ankle&quot;.
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;??
+Wrong answer. The correct one is &quot;uncle&quot;.
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;uncle
+Correct answer.
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;ankle
+Wrong answer. The correct one is &quot;uncle&quot;, you've just written the definition of &quot;a part of the body where the foot and the leg meet&quot;.The asked card was &quot;a brother of one's parent&quot;, the answer was &quot;ankle&quot;.
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;??
+Wrong answer. The correct one is &quot;uncle&quot;.
+Print the definition of &quot;a brother of one's parent&quot;:
+&gt;uncle
+Correct answer.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 3?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitals.txt
+0 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitalsNew.txt
+0 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 4?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;ghost_file.txt
+File not found.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 5?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;Great Britain
+The definition of the card:
+&gt;London
+The pair (&quot;Great Britain&quot;:&quot;London&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;Wakanda
+Can't remove &quot;Wakanda&quot;: there is no such card.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitals.txt
+1 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitals.txt
+1 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;1
+Print the definition of &quot;Great Britain&quot;:
+&gt;London
+Correct answer.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitalsNew.txt
+1 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 6?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitalsNew.txt
+1 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 7?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitalsNew.txt
+1 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;France
+The definition of the card:
+&gt;Paris
+The pair (&quot;France&quot;:&quot;Paris&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;Russia
+The definition of the card:
+&gt;Moscow
+The pair (&quot;Russia&quot;:&quot;Moscow&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;Great Britain
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitalsNew.txt
+2 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitalsNew.txt
+2 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;4
+Print the definition of &quot;France&quot;:
+&gt;London
+Wrong answer. The correct one is &quot;Paris&quot;.
+Print the definition of &quot;France&quot;:
+&gt;Paris
+Correct answer.
+Print the definition of &quot;France&quot;:
+&gt;Moscow
+Wrong answer. The correct one is &quot;Paris&quot;, you've just written the definition of &quot;Russia&quot;.The asked card was &quot;France&quot;, the answer was &quot;Moscow&quot;.
+Print the definition of &quot;France&quot;:
+&gt;Paris
+Correct answer.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 8?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;Japan
+The definition of the card:
+&gt;Tokyo
+The pair (&quot;Japan&quot;:&quot;Tokyo&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;France
+The definition of the card:
+&gt;UpdateMeFromImport
+The pair (&quot;France&quot;:&quot;UpdateMeFromImport&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;Russia
+The definition of the card:
+&gt;UpdateMeFromImport2
+The pair (&quot;Russia&quot;:&quot;UpdateMeFromImport2&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitalsNew.txt
+2 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;3
+Print the definition of &quot;Japan&quot;:
+&gt;Tokyo
+Correct answer.
+Print the definition of &quot;Japan&quot;:
+&gt;Paris
+Wrong answer. The correct one is &quot;Tokyo&quot;, you've just written the definition of &quot;France&quot;.The asked card was &quot;Japan&quot;, the answer was &quot;Paris&quot;.
+Print the definition of &quot;Japan&quot;:
+&gt;Moscow
+Wrong answer. The correct one is &quot;Tokyo&quot;, you've just written the definition of &quot;Russia&quot;.The asked card was &quot;Japan&quot;, the answer was &quot;Moscow&quot;.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;Japan
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;Russia
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;export
+File name:
+&gt;capitalsNew.txt
+1 cards have been saved.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 9?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;France
+The definition of the card:
+&gt;UpdateMeFromImport
+The pair (&quot;France&quot;:&quot;UpdateMeFromImport&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;import
+File name:
+&gt;capitalsNew.txt
+1 cards have been loaded
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;1
+Print the definition of &quot;France&quot;:
+&gt;UpdateMeFromImport
+Wrong answer. The correct one is &quot;Paris&quot;.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+?[1;31m
+Start test 10?[0m
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;a
+The definition of the card:
+&gt;1
+The pair (&quot;a&quot;:&quot;1&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;b
+The definition of the card:
+&gt;2
+The pair (&quot;b&quot;:&quot;2&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;c
+The definition of the card:
+&gt;3
+The pair (&quot;c&quot;:&quot;3&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;b
+The card &quot;b&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;c
+The card &quot;c&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;d
+The definition of the card:
+&gt;4
+The pair (&quot;d&quot;:&quot;4&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;c
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;xxxx
+Can't remove &quot;xxxx&quot;: there is no such card.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;c
+The definition of the card:
+&gt;5
+The pair (&quot;c&quot;:&quot;5&quot;) has been added.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;new card
+The definition of the card:
+&gt;4
+The definition &quot;4&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;add
+The card:
+&gt;f
+The definition of the card:
+&gt;5
+The definition &quot;5&quot; already exists.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;c
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;remove
+The card:
+&gt;d
+The card has been removed.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;7
+Print the definition of &quot;a&quot;:
+&gt;1
+Correct answer.
+Print the definition of &quot;a&quot;:
+&gt;2
+Wrong answer. The correct one is &quot;1&quot;, you've just written the definition of &quot;b&quot;.The asked card was &quot;a&quot;, the answer was &quot;2&quot;.
+Print the definition of &quot;a&quot;:
+&gt;3
+Wrong answer. The correct one is &quot;1&quot;.
+Print the definition of &quot;a&quot;:
+&gt;4
+Wrong answer. The correct one is &quot;1&quot;.
+Print the definition of &quot;a&quot;:
+&gt;3
+Wrong answer. The correct one is &quot;1&quot;.
+Print the definition of &quot;a&quot;:
+&gt;2
+Wrong answer. The correct one is &quot;1&quot;, you've just written the definition of &quot;b&quot;.The asked card was &quot;a&quot;, the answer was &quot;2&quot;.
+Print the definition of &quot;a&quot;:
+&gt;1
+Correct answer.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;ask
+How many times to ask?
+&gt;1
+Print the definition of &quot;a&quot;:
+&gt;2
+Wrong answer. The correct one is &quot;1&quot;, you've just written the definition of &quot;b&quot;.The asked card was &quot;a&quot;, the answer was &quot;2&quot;.
+
+Input the action (add, remove, import, export, ask, exit):
+&gt;exit
+Bye bye!
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 5.3.1</a> at 11 Nov 2019, 22:54:46</p>
+</div>
+</div>
+</body>
+</html>
