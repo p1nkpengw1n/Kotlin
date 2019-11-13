@@ -5,19 +5,30 @@ import java.io.FileNotFoundException
 import java.util.*
 
 val logList = mutableListOf<String>()
+var exportCommandLineArgument = false
+var exportLocation = ""
 
-fun main() {
+fun main(args: Array<String>) {
     val scanner = Scanner(System.`in`)
     val deck = mutableMapOf<String?, String?>()
     val mistakeCounter = mutableMapOf<String?, Int>()
     var exit = false
+    for(i in 0 until args.size) {
+        if(args[i] == "-import") {
+            import(deck, mistakeCounter, args[i+1])
+        }
+        else if(args[i] == "-export") {
+            exportCommandLineArgument = true
+            exportLocation = args[i+1]
+        }
+    }
     while (!exit) {
         println("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):")
         logList.add("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):")
         when (if (scanner.hasNext()) scanner.nextLine() else null) {
             "add" -> add(deck)
             "ask" -> ask(deck, mistakeCounter)
-            "remove" -> remove(deck)
+            "remove" -> remove(deck, mistakeCounter)
             "export" -> export(deck, mistakeCounter)
             "import" -> import(deck, mistakeCounter)
             "log" -> log()
@@ -27,6 +38,9 @@ fun main() {
                 exit = true
                 println("Bye bye!")
                 logList.add("Bye bye!")
+                if(exportCommandLineArgument) {
+                    export(deck, mistakeCounter, exportLocation)
+                }
             }
             else -> {
                 println("Please choose from the options from above!")
@@ -69,7 +83,7 @@ fun add(deck: MutableMap<String?, String?>) {
     logList.add("The pair (\"$term\":\"$definition\") has been added.")
 }
 
-fun remove(deck: MutableMap<String?, String?>) {
+fun remove(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>) {
     logList.add("remove")
     val scanner = Scanner(System.`in`)
     println("The card:")
@@ -79,6 +93,7 @@ fun remove(deck: MutableMap<String?, String?>) {
     for (term in deck.keys) {
         if (term == termToRemove) {
             deck.remove(term)
+            mistakeCounter.remove(term)
             println("The card has been removed.")
             logList.add("The card has been removed.")
             return
@@ -139,51 +154,101 @@ fun ask(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, 
     }
 }
 
-fun export(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>) {
-    logList.add("export")
-    val sb = StringBuilder()
-    for ((k, v) in deck) {
-        sb.append(k)
-        sb.append("=")
-        sb.append(v)
-        if (mistakeCounter.containsKey(k)) {
-            sb.append("/")
-            sb.append(mistakeCounter[k])
-        } else {
-            sb.append(0)
+fun export(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>, fileName: String = "") {
+    if(fileName == "") {
+        logList.add("export")
+        val sb = StringBuilder()
+        for ((k, v) in deck) {
+            sb.append(k)
+            sb.append("\n")
+            //sb.append("=")
+            sb.append(v)
+            if (mistakeCounter.containsKey(k)) {
+                //sb.append("/")
+                sb.append("\n")
+                sb.append(mistakeCounter[k])
+            } else {
+                //sb.append("/")
+                sb.append("\n")
+                sb.append(0)
+            }
+            sb.append("\n")
+            //sb.append(";")
         }
-        sb.append(";")
+        if(sb.isNotEmpty()) {
+            sb.deleteCharAt(sb.length-1)
+        }
+        val scanner = Scanner(System.`in`)
+        println("File name:")
+        logList.add("File name:")
+        val fileName = if (scanner.hasNext()) scanner.nextLine() else "generatedOutput.txt"
+        logList.add(fileName)
+        File(fileName).writeText(sb.toString())
+        println("${deck.size} cards have been saved.")
+        logList.add("${deck.size} cards have been saved.")
     }
-    val scanner = Scanner(System.`in`)
-    println("File name:")
-    logList.add("File name:")
-    val fileName = if (scanner.hasNext()) scanner.nextLine() else "generatedOutput.txt"
-    logList.add(fileName)
-    File(fileName).writeText(sb.toString())
-    println("${deck.size} cards have been saved.")
-    logList.add("${deck.size} cards have been saved.")
+    else {
+        val sb = StringBuilder()
+        for ((k, v) in deck) {
+            sb.append(k)
+            sb.append("\n")
+            //sb.append("=")
+            sb.append(v)
+            if (mistakeCounter.containsKey(k)) {
+                //sb.append("/")
+                sb.append("\n")
+                sb.append(mistakeCounter[k])
+            } else {
+                //sb.append("/")
+                sb.append("\n")
+                sb.append(0)
+            }
+            sb.append("\n")
+            //sb.append(";")
+        }
+        if(sb.isNotEmpty()) {
+            sb.deleteCharAt(sb.length-1)
+        }
+        File(fileName).writeText(sb.toString())
+        println("${deck.size} cards have been saved.")
+        logList.add("${deck.size} cards have been saved.")
+    }
 }
 
-fun import(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>) {
-    logList.add("import")
-    val scanner = Scanner(System.`in`)
-    println("File name:")
-    logList.add("File name:")
-    val fileName = if (scanner.hasNext()) scanner.nextLine() else ""
-    logList.add(fileName)
-    try {
-        parse(File(fileName).readText(), deck, mistakeCounter)
-    } catch (fnfe: FileNotFoundException) {
-        println("File not found.")
-        logList.add("File not found.")
-    } catch (e: Exception) {
-        println("Unknown error.")
-        logList.add("Unknown error.")
+fun import(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>, fileName: String = "") {
+    if(fileName == "") {
+        logList.add("import")
+        val scanner = Scanner(System.`in`)
+        println("File name:")
+        logList.add("File name:")
+        val fileName = if (scanner.hasNext()) scanner.nextLine() else ""
+        logList.add(fileName)
+        try {
+            parse(File(fileName).readText(), deck, mistakeCounter)
+        } catch (fnfe: FileNotFoundException) {
+            println("File not found.")
+            logList.add("File not found.")
+        } catch (e: Exception) {
+            println("Unknown error.")
+            logList.add("Unknown error.")
+        }
+    }
+    else {
+        try {
+            parse(File(fileName).readText(), deck, mistakeCounter)
+        } catch (fnfe: FileNotFoundException) {
+            println("File not found.")
+            logList.add("File not found.")
+        } catch (e: Exception) {
+            println("Unknown error.")
+            logList.add("Unknown error.")
+        }
     }
 }
 
 private fun parse(container: String, deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String?, Int>) {
-    val loadedDeck: List<String> = container.split("=", "/", ";").map { s -> s.dropWhile { !it.isLetterOrDigit() } }
+    //val loadedDeck: List<String> = container.split("=", "/", ";").map { s -> s.dropWhile { !it.isLetterOrDigit() } }
+    val loadedDeck: List<String> = container.split("\n").map { s -> s.dropWhile { !it.isLetterOrDigit() } }
     for (i in 0 until loadedDeck.size step 3) {
         val term = loadedDeck.get(i)
         val definition = loadedDeck.get(i + 1)
@@ -201,8 +266,8 @@ private fun parse(container: String, deck: MutableMap<String?, String?>, mistake
             mistakeCounter.put(term,mistakeCount)
         }
     }
-    println("${loadedDeck.size / 2} cards have been loaded")
-    logList.add("${loadedDeck.size / 2} cards have been loaded")
+    println("${loadedDeck.size / 3} cards have been loaded")
+    logList.add("${loadedDeck.size / 3} cards have been loaded")
 }
 
 fun log() {
