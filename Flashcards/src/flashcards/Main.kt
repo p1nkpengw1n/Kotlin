@@ -5,19 +5,19 @@ import java.io.FileNotFoundException
 import java.util.*
 
 val logList = mutableListOf<String>()
-var exportCommandLineArgument = false
-var exportLocation = ""
 
 fun main(args: Array<String>) {
     val scanner = Scanner(System.`in`)
     val deck = mutableMapOf<String?, String?>()
     val mistakeCounter = mutableMapOf<String?, Int>()
     var exit = false
+    var exportCommandLineArgument = false
+    var exportLocation = ""
     for(i in 0 until args.size) {
         if(args[i] == "-import") {
             import(deck, mistakeCounter, args[i+1])
         }
-        else if(args[i] == "-export") {
+        if(args[i] == "-export") {
             exportCommandLineArgument = true
             exportLocation = args[i+1]
         }
@@ -64,7 +64,7 @@ fun add(deck: MutableMap<String?, String?>) {
         if (term == key) {
             println("The card \"$term\" already exists.")
             logList.add("The card \"$term\" already exists.")
-            return;
+            return
         }
     }
     println("The definition of the card:")//println("The definition of the card #${i + 1}:")
@@ -75,7 +75,7 @@ fun add(deck: MutableMap<String?, String?>) {
         if (definition == value) {
             println("The definition \"$definition\" already exists.")
             logList.add("The definition \"$definition\" already exists.")
-            return;
+            return
         }
     }
     deck[term] = definition
@@ -209,6 +209,7 @@ fun export(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String
         if(sb.isNotEmpty()) {
             sb.deleteCharAt(sb.length-1)
         }
+        val fileName = fileName
         File(fileName).writeText(sb.toString())
         println("${deck.size} cards have been saved.")
         logList.add("${deck.size} cards have been saved.")
@@ -234,6 +235,7 @@ fun import(deck: MutableMap<String?, String?>, mistakeCounter: MutableMap<String
         }
     }
     else {
+        val fileName = fileName
         try {
             parse(File(fileName).readText(), deck, mistakeCounter)
         } catch (fnfe: FileNotFoundException) {
