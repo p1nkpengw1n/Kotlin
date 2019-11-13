@@ -317,7 +317,6 @@ fun hardestCard(mistakeCounter: MutableMap<String?, Int>) {
         println("The hardest card is \"${listOfHardestCards[0]}\". You have $biggestValue errors answering it.")
         logList.add("The hardest card is \"${listOfHardestCards[0]}\". You have $biggestValue errors answering it.")
     }
-    return
 }
 
 fun resetStats(mistakeCounter: MutableMap<String?, Int>) {
